@@ -25,7 +25,9 @@ const Header = () => {
     return (
         <header className={styles.header}>
 
-            <div className={styles.icon}></div>
+            <div className={styles.icon}>
+                <h2>Avatar</h2>
+            </div>
 
             <div className={styles.buttonGroup}>
 

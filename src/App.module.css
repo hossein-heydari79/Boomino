@@ -1,5 +1,22 @@
 .container {
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(#0A0A3E, #26244B);
+    background-image: linear-gradient(to right top, #26244B, #0A0A3E);
+
+}
+
+.main {
+    width: 100%;
+    padding: 0px 5rem;
+    display: flex;
+    overflow-y: auto;
+    padding-bottom: 2rem;
+}
+
+.card {
+    min-width: 33rem;
+    height: 19rem;
+    border-radius: 2.5rem;
+    background-color: red;
+    margin: 3rem 0 0 3rem;
 }
