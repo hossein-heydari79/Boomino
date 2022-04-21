@@ -1,11 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+/* -------------------------------------------------- */
+
+//styles
+
+import styles from 'App.module.css';
+
+/* -------------------------------------------------- */
+
+//components
+
+import Header from "components/Header/Header.jsx";
+
+/* -------------------------------------------------- */
 
 function App() {
   return (
-    <div>
-      Hossein
+
+    <div class={styles.container}>
+
+      <Header />
+
     </div>
+
   );
 }
 
