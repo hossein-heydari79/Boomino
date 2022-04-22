@@ -25,20 +25,21 @@ const Header = () => {
     return (
         <header className={styles.header}>
 
-            <div className={styles.icon}>
-                <h2>Avatar</h2>
-            </div>
 
             <div className={styles.buttonGroup}>
-
-                <div className={styles.searchIcon}>
-                    <img src={SearchIcon} alt="searchIcon" />
-                </div>
 
                 <div className={styles.backIcon}>
                     <img src={BackIcon} alt="backIcon" />
                 </div>
 
+                <div className={styles.searchIcon}>
+                    <img src={SearchIcon} alt="searchIcon" />
+                </div>
+
+            </div>
+
+            <div className={styles.icon}>
+                <h2>Avatar</h2>
             </div>
 
         </header>
