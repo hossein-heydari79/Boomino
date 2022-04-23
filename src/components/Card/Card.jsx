@@ -1,14 +1,12 @@
-import Img from "assets/images/img.jpg";
-
 //styles
 
 import styles from "components/Card/Card.module.css";
 
 /* -------------------------------------------------- */
 
-const Card = ({ title, duration, imageUrl }) => {
+const Card = ({ title, duration, imageUrl, reff = null }) => {
     return (
-        <div className={styles.card}>
+        <div className={styles.card} ref={reff}>
             <img src={imageUrl} alt="Logo" />
 
             <div className={styles.time}>

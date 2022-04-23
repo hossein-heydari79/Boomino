@@ -1,10 +1,11 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import axios from "axios";
 
 /* -------------------------------------------------- */
 
-//packages
+//hooks
 
+import useMovieSearch from "hooks/useMovieSearch.js"
 
 /* -------------------------------------------------- */
 
@@ -30,55 +31,42 @@ import { getPaginatedMovies } from "services/api/movies";
 const CardContainer = () => {
 
 
-    const mainRef = useRef(null);
 
-    const [movies, setMovies] = useState([]);
+    const [pageNumber, setPageNumber] = useState(1);
 
-    const [currentPage, setCurrentPage] = useState(1);
-
-    const [scrollPosition, setScrollPosition] = useState(null);
-
-    useEffect(() => {
-
-        getPaginatedMovies(1).then(res => setMovies(res.data.data));
+    const { loading, error, movies, hasMore } = useMovieSearch(pageNumber);
 
 
-    }, []);
 
+    const observer = useRef()
+    const lastMovieElementRef = useCallback((node) => {
+        if (loading) return
 
-    mainRef?.current?.addEventListener("scroll", (e) => {
-        setScrollPosition(mainRef.current.offsetWidth - mainRef.current.scrollLeft);
-    })
+        if (observer.current) observer.current.disconnect()
+        observer.current = new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting && hasMore) {
+                setPageNumber(prevPageNumber => prevPageNumber + 1)
+            }
+        })
 
-    useEffect(() => {
-
-        if (currentPage === 1) {
-            // mainRef.current.scrollY >= (mainRef.current.offsetWidth * 0.8) && getPaginatedMovies(2).then(res => console.log(res));
-            // setCurrentPage(2);
-            console.log(scrollPosition, (mainRef.current.offsetWidth * 0.8))
-        }
-
-        // else {
-        //     setCurrentPage(Math.ceil(scrollPosition / (mainRef.current.offsetWidth * 0.8)))
-        // }
-
-    }, [scrollPosition]);
-
+        if (node) observer.current.observe(node)
+    }, [loading, hasMore])
 
     return (
-        <main className={styles.main} ref={mainRef}>
-
-
-            {
-                console.log(scrollPosition)
-            }
+        <main className={styles.main}>
 
             {
-                movies.map(movie => (
-                    <Card key={movie.id} title={movie.fa_title} duration={movie.duration} imageUrl={movie.main_poster_url} />
-                ))
+                movies.map((movie, index) => {
+                    if (movies.length <= index + 1) {
+                        return <Card key={movie.id} title={movie.fa_title} reff={lastMovieElementRef} duration={movie.duration} imageUrl={movie.main_poster_url} />
+                    } else {
+                        return <Card key={movie.id} title={movie.fa_title} duration={movie.duration} imageUrl={movie.main_poster_url} />
+                    }
+                })
             }
 
+            <div>{loading && "Loading..."}</div>
+            <div>{error && "Error"}</div>
 
         </main>
     )
