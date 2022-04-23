@@ -1,3 +1,5 @@
+/* -------------------------------------------------- */
+
 //styles
 
 import styles from "components/Card/Card.module.css";
@@ -20,6 +22,7 @@ const Card = ({ title, duration, imageUrl, reff = null, setMovieSelected }) => {
             rankSelected: ""
         })
     }
+
 
     return (
         <div className={styles.card} ref={reff} onClick={movieSelect}>

@@ -1,10 +1,10 @@
 function timeConverter(time) {
 
-    const h = Math.floor(time / 60);
-    const m = Math.floor((time % 60));
-    const s = Math.floor((time % 60) % 60);
+    const hour = Math.floor(time / 60);
+    const minute = Math.floor((time % 60));
+    const second = Math.floor((time % 60) % 60);
 
-    return m > 9 ? `0${h}:${m}:00` : `0${h}:0${m}:00`
+    return minute > 9 ? `0${hour}:${minute}:00` : `0${hour}:0${minute}:00`
 
 
 }
