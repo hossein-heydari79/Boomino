@@ -60,6 +60,11 @@
     align-items: center;
 }
 
+.likeBox img,
+.dislikeBox img {
+    cursor: pointer;
+}
+
 .low,
 .much {
     color: #FFFFFF;

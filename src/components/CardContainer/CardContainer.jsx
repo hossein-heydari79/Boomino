@@ -58,8 +58,8 @@ const CardContainer = ({ movieSelected, setMovieSelected }) => {
                 })
             }
 
-            <div>{loading && "Loading..."}</div>
-            <div>{error && "Error"}</div>
+            <h2 className={styles.loading}>{loading && "... Loading"}</h2>
+            <h2 className={styles.error}>{error && "Error"}</h2>
 
         </main>
     )

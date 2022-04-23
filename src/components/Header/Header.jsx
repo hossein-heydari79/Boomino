@@ -39,7 +39,7 @@ const Header = () => {
             </div>
 
             <div className={styles.icon}>
-                <h2>Avatar</h2>
+                <h2>Hossein</h2>
             </div>
 
         </header>
