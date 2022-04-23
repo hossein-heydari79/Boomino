@@ -10,13 +10,19 @@ import timeConverter from "assets/js/timeConverter.js";
 
 /* -------------------------------------------------- */
 
-const Card = ({ title, duration, imageUrl, reff = null }) => {
+const Card = ({ title, duration, imageUrl, reff = null, setMovieSelected }) => {
 
-
-    console.log("time", timeConverter(duration));
+    const movieSelect = () => {
+        setMovieSelected({
+            image: imageUrl,
+            title,
+            open: true,
+            rankSelected: true
+        })
+    }
 
     return (
-        <div className={styles.card} ref={reff}>
+        <div className={styles.card} ref={reff} onClick={movieSelect}>
             <img src={imageUrl} alt="Logo" />
 
             <div className={styles.time}>

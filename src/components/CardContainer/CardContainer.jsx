@@ -21,7 +21,7 @@ import Card from "components/Card/Card.jsx";
 
 /* -------------------------------------------------- */
 
-const CardContainer = () => {
+const CardContainer = ({ movieSelected, setMovieSelected }) => {
 
 
 
@@ -51,9 +51,9 @@ const CardContainer = () => {
             {
                 movies.map((movie, index) => {
                     if (movies.length <= index + 1) {
-                        return <Card key={movie.id} title={movie.fa_title} reff={lastMovieElementRef} duration={movie.duration} imageUrl={movie.main_poster_url} />
+                        return <Card setMovieSelected={setMovieSelected} key={movie.id} title={movie.fa_title} reff={lastMovieElementRef} duration={movie.duration} imageUrl={movie.main_poster_url} />
                     } else {
-                        return <Card key={movie.id} title={movie.fa_title} duration={movie.duration} imageUrl={movie.main_poster_url} />
+                        return <Card setMovieSelected={setMovieSelected} key={movie.id} title={movie.fa_title} duration={movie.duration} imageUrl={movie.main_poster_url} />
                     }
                 })
             }
