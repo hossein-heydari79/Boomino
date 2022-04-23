@@ -24,7 +24,7 @@ function App() {
     image: null,
     title: null,
     open: false,
-    rankSelected: true
+    rankSelected: ""
   });
 
   return (

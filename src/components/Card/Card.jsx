@@ -17,7 +17,7 @@ const Card = ({ title, duration, imageUrl, reff = null, setMovieSelected }) => {
             image: imageUrl,
             title,
             open: true,
-            rankSelected: true
+            rankSelected: ""
         })
     }
 

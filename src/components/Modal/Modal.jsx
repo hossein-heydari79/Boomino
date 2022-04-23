@@ -14,10 +14,10 @@ const Modal = ({ movieSelected, setMovieSelected }) => {
         })
     }
 
-    const rankSelectedFunc = () => {
+    const rankSelectedFunc = (rank) => {
         setMovieSelected({
             ...movieSelected,
-            rankSelected: false
+            rankSelected: rank
         })
     }
 
@@ -36,19 +36,19 @@ const Modal = ({ movieSelected, setMovieSelected }) => {
                 </h2>
                 <div className={styles.imageBox}>
                     <div className={styles.likeBox}>
-                        <img src={like} onClick={rankSelectedFunc} alt="likeLogo" />
-                        <h2 className={styles.much}>زیاد</h2>
+                        <img src={like} onClick={() => rankSelectedFunc("much")} alt="likeLogo" />
+                        <h2 style={{ color: movieSelected.rankSelected == "much" ? "rgb(0, 230, 0)" : "#FFFFFF" }} className={styles.much}>زیاد</h2>
                     </div>
                     <div className={styles.dislikeBox}>
-                        <img src={dislike} onClick={rankSelectedFunc} alt="dislikeLogo" />
-                        <h2 className={styles.low}>کم</h2>
+                        <img src={dislike} onClick={() => rankSelectedFunc("low")} alt="dislikeLogo" />
+                        <h2 style={{ color: movieSelected.rankSelected == "low" ? "rgb(255, 58, 58)" : "#FFFFFF" }} className={styles.low}>کم</h2>
                     </div>
                 </div>
 
-                <button onClick={closeFunc} disabled={movieSelected.rankSelected} className={styles.btnSubmit}>همینه</button>
+                <button onClick={closeFunc} disabled={!movieSelected.rankSelected} className={styles.btnSubmit}>همینه</button>
 
             </div>
-        </div>
+        </div >
     )
 }
 

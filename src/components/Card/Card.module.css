@@ -11,6 +11,12 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: scale(1.1);
 }
 
 
