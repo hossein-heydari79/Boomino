@@ -24,12 +24,12 @@ body,
 
 
 ::-webkit-scrollbar {
-  width: 1.5rem !important;
+  width: 0.8rem;
+  height: 0.8rem;
 }
 
 
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 2px lightgray;
   border-radius: 10px;
 }
 
@@ -41,4 +41,9 @@ body,
 
 ::-webkit-scrollbar-thumb:hover {
   background: gray;
+}
+
+.infinite-scroll-component__outerdiv {
+  display: flex;
+  width: 100%;
 }
