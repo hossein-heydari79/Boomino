@@ -21,13 +21,6 @@ import Card from "components/Card/Card.jsx";
 
 /* -------------------------------------------------- */
 
-//api
-
-import { getPaginatedMovies } from "services/api/movies";
-
-
-/* -------------------------------------------------- */
-
 const CardContainer = () => {
 
 
