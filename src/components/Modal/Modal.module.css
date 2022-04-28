@@ -1,5 +1,5 @@
 .modal {
-    width: 100%;
+    max-width: 100%;
     height: 100%;
     /* background-color: rgba(0, 0, 0, 0.8); */
     backdrop-filter: blur(5px);
@@ -13,7 +13,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: fade 0.3s;
 }
 
 .box {
@@ -27,6 +26,7 @@
     justify-content: center;
     align-items: center;
     padding-top: 5rem;
+    animation: fade 0.3s;
 }
 
 .pic {
@@ -111,4 +111,47 @@
         opacity: 1;
         transform: translate(0px, 0px);
     }
+}
+
+
+@media screen and (min-width : 1920px) {
+
+    .pic {
+        width: 35%;
+        height: 30%;
+    }
+
+    .box {
+        width: 60%;
+        height: 70%;
+    }
+
+    .btnSubmit {
+        width: 10rem;
+        font-size: 2.2rem;
+    }
+
+    .dislikeBox img,
+    .likeBox img {
+        width: 140%;
+    }
+
+    .low,
+    .much {
+        font-size: 2.5rem;
+    }
+
+    .boxTitle {
+        font-size: 2.5rem;
+    }
+
+}
+
+
+@media screen and (max-width : 950px) {
+
+    .box {
+        width: 70%;
+    }
+
 }

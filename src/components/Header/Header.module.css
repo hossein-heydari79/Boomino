@@ -65,3 +65,23 @@
     border-bottom: 0.5rem solid #7C70FF;
     outline: 1px solid #7C70FF;
 }
+
+@media screen and (min-width : 1920px) {
+
+    .searchIcon {
+        width: 10rem;
+        height: 10.5rem;
+    }
+
+    .backIcon {
+        width: 10rem;
+        height: 10.5rem;
+    }
+
+    .icon {
+        width: 11rem;
+        height: 11.5rem;
+        font-size: 1.5rem;
+    }
+
+}

@@ -18,7 +18,9 @@ html,
 body,
 #root {
   width: 100%;
-  font-family: "iranSans"
+  height: 100vh;
+  font-family: "iranSans";
+  overflow-x: hidden;
 }
 
 

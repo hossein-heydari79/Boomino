@@ -1,6 +1,6 @@
 .card {
-    width: 33rem;
-    height: 19rem;
+    width: 25%;
+    height: 45%;
     border-radius: 2.5rem;
     margin: 1.5rem 1.5rem 0 1.5rem;
     position: relative;
@@ -64,4 +64,27 @@
     background-color: rgba(00, 00, 00, 0.5);
     font-family: "iranSans";
     border-radius: 0.5rem;
+}
+
+
+@media screen and (min-width : 1920px) {
+
+    .title h2 {
+        font-size: 2.5rem;
+    }
+
+    .card {
+        width: 30%;
+    }
+
+    .time h2 {
+        font-size: 2.5rem;
+    }
+
+}
+
+@media screen and (max-width : 900px) {
+    .card {
+        width: 35%;
+    }
 }

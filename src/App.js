@@ -17,6 +17,7 @@ import styles from 'App.module.css';
 import Header from "components/Header/Header.jsx";
 import CardContainer from "components/CardContainer/CardContainer.jsx";
 import Modal from "components/Modal/Modal.jsx";
+import Warning from "components/Warning/Warning.jsx";
 
 /* -------------------------------------------------- */
 
@@ -33,6 +34,7 @@ function App() {
   return (
 
     <div className={styles.container}>
+      <Warning />
 
       {
         movieSelected.open && <Modal movieSelected={movieSelected} setMovieSelected={setMovieSelected} />
