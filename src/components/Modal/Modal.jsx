@@ -1,21 +1,80 @@
+/* -------------------------------------------------- */
+
+//styles
+
 import styles from "components/Modal/Modal.module.css";
+
+/* -------------------------------------------------- */
+
+//icons
+
 import dislike from "assets/icons/dislike.svg";
 import like from "assets/icons/like.svg";
 import close from "assets/icons/close.svg";
-
 import likeSelected from "assets/icons/like-select.svg";
 import disLikeSelected from "assets/icons/dislike-select.svg";
 
+/* -------------------------------------------------- */
 
-const Modal = ({ movieSelected, setMovieSelected }) => {
+//packages
+
+import { useEffect } from "react";
+
+/* -------------------------------------------------- */
+
+//pureJs
+
+import checkDuplicate from "assets/js/checkDuplicate.js";
+
+/* -------------------------------------------------- */
+
+
+const Modal = ({ movieSelected, setMovieSelected, cardFavorite, setCardFavorite }) => {
+
+    let duplicate = [];
+
+
+    useEffect(() => {
+
+        const resultDuplacate = checkDuplicate(duplicate, cardFavorite, movieSelected, setMovieSelected);
+        duplicate = [...resultDuplacate];
+
+    }, []);
 
 
     const closeFunc = () => {
+
         setMovieSelected({
             ...movieSelected,
             open: false
         })
     }
+
+
+
+    const submitFunc = () => {
+
+        const resultDuplacate = checkDuplicate(duplicate, cardFavorite, movieSelected, setMovieSelected);
+        duplicate = [...resultDuplacate];
+
+        setMovieSelected({
+            ...movieSelected,
+            open: false
+        })
+
+        if (movieSelected.rankSelected === "much" && !duplicate.includes(true)) {
+            setCardFavorite([
+                ...cardFavorite,
+                movieSelected
+            ])
+        }
+
+        if (movieSelected.rankSelected === "low" && duplicate.includes(true)) {
+            setCardFavorite(cardFavorite.filter(item => item.id !== movieSelected.id));
+        }
+    }
+
+
 
     const rankSelectedFunc = (rank) => {
         setMovieSelected({
@@ -70,7 +129,7 @@ const Modal = ({ movieSelected, setMovieSelected }) => {
                     </div>
                 </div>
 
-                <button onClick={closeFunc} disabled={!movieSelected.rankSelected} className={styles.btnSubmit}>همینه</button>
+                <button onClick={submitFunc} disabled={!movieSelected.rankSelected} className={styles.btnSubmit}>همینه</button>
 
             </div>
         </div >

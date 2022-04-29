@@ -15,6 +15,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .buttonGroup {
@@ -66,17 +67,51 @@
     outline: 1px solid #7C70FF;
 }
 
+.favorite {
+    background-color: transparent;
+    width: 7rem;
+    height: 7.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2rem;
+    border-bottom: 0.5rem solid #7C70FF;
+    padding-top: 0.5rem;
+    outline: 1px solid #7C70FF;
+    position: relative;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+.favoriteIcon {
+    color: #7C70FF;
+}
+
+.favoriteCount {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: #7C70FF;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 @media screen and (min-width : 1920px) {
 
-    .searchIcon {
+    .searchIcon,
+    .backIcon,
+    .favorite {
         width: 10rem;
         height: 10.5rem;
     }
 
-    .backIcon {
-        width: 10rem;
-        height: 10.5rem;
-    }
 
     .icon {
         width: 11rem;

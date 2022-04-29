@@ -12,10 +12,11 @@ import timeConverter from "assets/js/timeConverter.js";
 
 /* -------------------------------------------------- */
 
-const Card = ({ title, duration, imageUrl, reff = null, setMovieSelected }) => {
+const Card = ({ title, duration, imageUrl, reff = null, setMovieSelected, id }) => {
 
     const movieSelect = () => {
         setMovieSelected({
+            id,
             image: imageUrl,
             title,
             open: true,

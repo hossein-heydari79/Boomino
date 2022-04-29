@@ -8,6 +8,12 @@ import React from "react";
 
 //icons
 
+import { MdFavorite } from "react-icons/md";
+
+/* -------------------------------------------------- */
+
+//icons
+
 import BackIcon from "assets/icons/back.svg";
 import SearchIcon from "assets/icons/search.svg"
 
@@ -20,7 +26,13 @@ import styles from "components/Header/Header.module.css";
 /* -------------------------------------------------- */
 
 
-const Header = () => {
+const Header = ({ cardFavorite, setCardFavorite, isShowFavoriteBox, setIsShowFavoriteBox }) => {
+
+
+    const isShowModal = () => {
+        setIsShowFavoriteBox(true)
+    }
+
 
     return (
         <header className={styles.header}>
@@ -34,6 +46,11 @@ const Header = () => {
 
                 <div className={styles.searchIcon}>
                     <img src={SearchIcon} alt="searchIcon" />
+                </div>
+
+                <div className={styles.favorite} onClick={isShowModal}>
+                    <h2 className={styles.favoriteCount}>{cardFavorite.length}</h2>
+                    <MdFavorite className={styles.favoriteIcon} size={50} />
                 </div>
 
             </div>

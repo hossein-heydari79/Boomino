@@ -53,9 +53,9 @@ const CardContainer = ({ movieSelected, setMovieSelected }) => {
             {
                 movies.map((movie, index) => {
                     if (movies.length <= index + 1) {
-                        return <Card setMovieSelected={setMovieSelected} key={movie.id} title={movie.fa_title} reff={lastMovieElementRef} duration={movie.duration} imageUrl={movie.main_poster_url} />
+                        return <Card setMovieSelected={setMovieSelected} key={movie.id} id={movie.id} title={movie.fa_title} reff={lastMovieElementRef} duration={movie.duration} imageUrl={movie.main_poster_url} />
                     } else {
-                        return <Card setMovieSelected={setMovieSelected} key={movie.id} title={movie.fa_title} duration={movie.duration} imageUrl={movie.main_poster_url} />
+                        return <Card setMovieSelected={setMovieSelected} key={movie.id} id={movie.id} title={movie.fa_title} duration={movie.duration} imageUrl={movie.main_poster_url} />
                     }
                 })
             }
